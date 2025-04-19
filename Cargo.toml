@@ -1,0 +1,31 @@
+[package]
+name = "codex_cli"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A powerful AI-powered command-line interface with local code execution capabilities"
+license = "MIT"
+repository = "https://github.com/yourusername/codex_cli"
+readme = "README.md"
+keywords = ["cli", "ai", "code", "development", "tools"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+duct = "0.13"
+figlet-rs = "0.1.5"
+owo-colors = "3.5"
+indicatif = "0.17"
+console = "0.15"
+cmd_lib = "1.6.0"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = 'abort'
+strip = true
+opt-level = 3
+
+[profile.dev]
+opt-level = 0
+debug = true
